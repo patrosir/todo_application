@@ -8,7 +8,7 @@
       <% if (is_overdue && !todo.completed) || !is_overdue %>
         <li class="TodoItem">
           <label class="TodoItem-container">
-            <input class="TodoItem-checkbox" type="checkbox">
+            <input class="TodoItem-checkbox" type="checkbox" checked=<%= todo.completed %>>
             <%= todo.todo_text %>
             <% if show_due_date %>
               <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
