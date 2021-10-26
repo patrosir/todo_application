@@ -5,7 +5,7 @@
   </div>
   <ul>
     <% todos.each do |todo| %>
-      <% if todo.completed %>
+      <% if !todo.completed %>
         <li class="TodoItem">
           <label class="TodoItem-container">
             <input class="TodoItem-checkbox" type="checkbox">
@@ -21,5 +21,4 @@
       <% end %>
     <% end %>
   </ul>
-  <p> This is taking effect</p>
 </section>
