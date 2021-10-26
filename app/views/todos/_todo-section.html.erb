@@ -5,18 +5,21 @@
   </div>
   <ul>
     <% todos.each do |todo| %>
-      <li class="TodoItem">
-        <label class="TodoItem-container">
-          <input class="TodoItem-checkbox" type="checkbox">
-          <%= todo.todo_text %>
-          <% if show_due_date %>
-            <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
-          <% end %>
-          <a class="TodoItem-delete" href="javascript:void(0)">
-            <img src="trashcan.svg">
-          </a>
-        </label>
-      </li>
+      <% if todo.completed %>
+        <li class="TodoItem">
+          <label class="TodoItem-container">
+            <input class="TodoItem-checkbox" type="checkbox">
+            <%= todo.todo_text %>
+            <% if show_due_date %>
+              <p class="TodoItem-dueDate"><%= todo.due_date.to_s(:short) %></p>
+            <% end %>
+            <a class="TodoItem-delete" href="javascript:void(0)">
+              <img src="trashcan.svg">
+            </a>
+          </label>
+        </li>
+      <% end %>
     <% end %>
   </ul>
+  <p> This is taking effect</p>
 </section>
