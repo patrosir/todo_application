@@ -7,7 +7,7 @@
     <% todos.each do |todo| %>
       <% if (is_overdue && !todo.completed) || !is_overdue %>
         <li class="TodoItem">
-          <%= label_tag(name = nil, options = { class: "TodoItem-container" }) %>
+          <%= label_tag(name:nil, class: "TodoItem-container" }) %>
             <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
             <%= check_box_tag("completed", true, todo.completed ? true : false, { class: "TodoItem-checkbox", onclick: "this.form.submit();" }) %>
             <% end %>
