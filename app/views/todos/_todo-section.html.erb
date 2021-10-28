@@ -14,7 +14,6 @@
                 name="completed"
                 type="checkbox" <%= todo.completed ? "checked" : "" %>
                 onclick ="this.form.submit()">
-              <input type="submit" value="Update">
             <% end %>
             <p style="<%= todo.completed ? "text-decoration: line-through;" : "" %>"><%= todo.todo_text %></p>
 
