@@ -8,14 +8,14 @@
       <% if (is_overdue && !todo.completed) || !is_overdue %>
         <li class="TodoItem">
           <label class="TodoItem-container">
-
-            <% if todo.completed %>
-              <input class="TodoItem-checkbox" type="checkbox" checked>
-              <p style="text-decoration: line-through;"><%= todo.todo_text %></p>
-            <% else %>
-              <input class="TodoItem-checkbox" type="checkbox">
-              <%= todo.todo_text %>
+            <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
+                <input class="TodoItem-checkbox"
+                name="completed"
+                type="checkbox" <%= todo.completed ? "checked" : "" %>>
+              <input type="submit" value="Update">
             <% end %>
+            <p style=<%= todo.completed ? "text-decoration: line-through;" : "" %>><%= todo.todo_text %></p>
+
 
 
             <% if show_due_date %>
