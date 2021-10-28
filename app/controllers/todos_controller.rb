@@ -33,4 +33,11 @@ class TodosController < ApplicationController
     todo.save!
     redirect_to todos_path
   end
+
+  def destory
+    id = params[:id]
+    todo = Todo.find(id)
+    todo.destory
+    redirect_to todos_path
+  end
 end
