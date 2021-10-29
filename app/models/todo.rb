@@ -4,6 +4,10 @@ class Todo < ActiveRecord::Base
     where("due_date < ?", Date.today)
   end
 
+  def self.of_user(user)
+    all.where(user_id: user.id)
+  end
+
   def self.due_today
     where("due_date = ?", Date.today)
   end
