@@ -10,20 +10,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(
+    user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
     )
-    session[:current_user_id] = user.id
-    redirect_to "/"
-  end
-
-  def login
-    email = params[:email]
-    password = params[:password]
-    user_exists = User.exists?(email: email, password: password)
-    render plain: "#{user_exists}"
+    if user.save
+      session[:current_user_id] = user.id
+      redirect_to "/"
+    else
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to new_user_path
+    end
   end
 end
